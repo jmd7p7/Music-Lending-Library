@@ -21,17 +21,14 @@ namespace LendingLibrary_Library.MusicSelection
             if (String.IsNullOrEmpty(institutionId) || String.IsNullOrWhiteSpace(institutionId))
             {
                 throw new ArgumentException("In class ReplacementValue, constructor. The InstituionId must contain characters.");
-            }
-            Debug.Assert(24 == institutionId.Length, "In class ReplacementValue, constructor. Attempted to add an institutionId (objectId) that was not 24 characters long to a replacement value.");
+            }          
 
-            this._ReplacementValue = replacementValue.Trim();
+            this._ReplacementValue = replacementValue.Trim().ToLower();
             this.InstitutionIds = new List<string>() { institutionId };
         }
 
         public void AddInsitutionId(String institutionId)
-        {
-            Debug.Assert(24 == institutionId.Length, "In class ReplacementValue, AddInsitutionId(). Attempted to add an institutionId (objectId) that was not 24 characters long to a replacement value.");
-
+        {         
             if (this.InstitutionIds.Contains(institutionId))
             {
                 throw new ArgumentException("In class ReplacementValue, AddInsitutionId(). Attempted to add an institutionId that already exists in the list.");
@@ -41,15 +38,13 @@ namespace LendingLibrary_Library.MusicSelection
         }
 
         public void RemoveInstituionId(String institutionId)
-        {
-            Debug.Assert(24 == institutionId.Length, "In class ReplacementValue, RemoveInsitutionId(). Attempted to remove an institutionId (objectId) that was not 24 characters long from a replacement value.");
-
+        {         
             if (this.InstitutionIds.Count == 0)
             {
                 throw new ArgumentException("In class ReplacementValue, RemoveInsitutionId(). Attempted to remove an institutionId (objectId) from a replacement value that has zero institutionIds.");
             }
 
-            if (!this.InstitutionIds.Contains(institutionId))
+            if (this.InstitutionIds.Contains(institutionId) == false)
             {
                 throw new ArgumentException("In class ReplacementValue, RemoveInsitutionId(). Attempted to remove an institutionId (objectId) from a replacement value where that institutionId does not exist.");
             }
@@ -65,6 +60,20 @@ namespace LendingLibrary_Library.MusicSelection
         public int getCount()
         {
             return this.InstitutionIds.Count;
+        }
+
+        public override bool Equals(Object obj)
+        {
+            // Check for null values and compare run-time types.
+            if (obj == null || GetType() != obj.GetType())
+                return false;
+
+            ReplacementValue given = (ReplacementValue)obj;
+            if (this._ReplacementValue == given._ReplacementValue)
+            {
+                return Enumerable.SequenceEqual(this.InstitutionIds, given.InstitutionIds);
+            }
+            return false;
         }
     }
 }

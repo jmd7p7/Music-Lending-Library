@@ -75,7 +75,7 @@ namespace LendingLibrary_Library_Tests
         }
 
         [TestMethod]
-        public void TestReplacementValueConstructorWhiteSpaceTrimmedFromReplacementValue()
+        public void TestReplacementValueConstructor_WhiteSpaceTrimmedFromArgumentReplacementValue()
         {
             //Arrange
             ReplacementValue myReplacementValue;
@@ -84,7 +84,7 @@ namespace LendingLibrary_Library_Tests
             myReplacementValue = new ReplacementValue("  Advent  ", "522bb79455449d881b004d27");
 
             //Assert
-            Assert.AreEqual("Advent", myReplacementValue._ReplacementValue);
+            Assert.AreEqual("advent", myReplacementValue._ReplacementValue);
         }
 
         [TestMethod]
@@ -180,6 +180,71 @@ namespace LendingLibrary_Library_Tests
 
             //Assert
             Assert.AreEqual(2, myReplacementValue.getCount());
+        }
+
+        [TestMethod]
+        public void TestReplacementValueEquals_InstancesAreEqual()
+        {
+            //Arrange
+            ReplacementValue instance1;
+            ReplacementValue instance2;
+
+            //Act
+            instance1 = new ReplacementValue("Advent", "333bb79455449d881b004d27");
+            instance2 = new ReplacementValue("Advent", "333bb79455449d881b004d27");
+
+            //Assert
+            Assert.AreEqual(instance1, instance2);
+
+        }
+
+        [TestMethod]
+        public void TestReplacementValueEquals_InstancesDoNotHaveEqualReplacementValues()
+        {
+            //Arrange
+            ReplacementValue instance1;
+            ReplacementValue instance2;
+
+            //Act
+            instance1 = new ReplacementValue("Lent", "333bb79455449d881b004d27");
+            instance2 = new ReplacementValue("Advent", "333bb79455449d881b004d27");
+
+            //Assert
+            Assert.AreNotEqual(instance1, instance2);
+
+        }
+
+        [TestMethod]
+        public void TestReplacementValueEquals_InstancesDoNotHaveEqualInstitutionIdLists()
+        {
+            //Arrange
+            ReplacementValue instance1;
+            ReplacementValue instance2;
+
+            //Act
+            instance1 = new ReplacementValue("Advent", "888bb79455449d881b004d27");
+            instance2 = new ReplacementValue("Advent", "333bb79455449d881b004d27");
+
+            //Assert
+            Assert.AreNotEqual(instance1, instance2);
+        }
+
+        [TestMethod]
+        public void TestReplacementValueEquals_InstancesHaveSameElementsButDifferentOrder_ShouldFail()
+        {
+            //Arrange
+            ReplacementValue instance1;
+            ReplacementValue instance2;
+
+            //Act
+            instance1 = new ReplacementValue("Advent", "333bb79455449d881b004d27");
+            instance1.AddInsitutionId("888bb79455449d881b004d27");
+
+            instance2 = new ReplacementValue("Advent", "888bb79455449d881b004d27");
+            instance2.AddInsitutionId("333bb79455449d881b004d27");
+
+            //Assert
+            Assert.AreNotEqual(instance1, instance2);
         }
     }
 }

@@ -53,6 +53,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Label_Tests.cs" />
     <Compile Include="ReplacementValue_Tests.cs" />
+    <Compile Include="Dispute_Tests.cs" />
+    <Compile Include="PrivateDispute_Tests.cs" />
+    <Compile Include="Instrumentation_Tests.cs" />
+    <Compile Include="Instrument_Tests.cs" />
+    <Compile Include="InstrumentPart_Tests.cs" />
+    <Compile Include="ChoralInstrument_Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LendingLibrary_Library\LendingLibrary_Library.csproj">

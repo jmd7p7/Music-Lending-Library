@@ -15,7 +15,7 @@ namespace LendingLibrary_Library.MusicSelection
         {
             if (String.IsNullOrEmpty(labelName) || String.IsNullOrWhiteSpace(labelName))
             {
-                throw new ArgumentException("Text must be provided for the label.");
+                throw new ArgumentException("In class Label, constructor. Text must be provided for the label.");
             }
 
             this.LabelName = labelName.Trim();
@@ -29,7 +29,7 @@ namespace LendingLibrary_Library.MusicSelection
         public void DecrementCount()
         {
             System.Diagnostics.Debug.Assert(this.Count != 0, 
-                "Decrementing label count will result in a negative value.");
+                "In class Label, DecrementCount(). Decrementing label count will result in a negative value.");
             this.Count--;
         }
     }
