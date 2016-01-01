@@ -39,12 +39,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MusicSelection\ChoralInstrument.cs" />
+    <Compile Include="MusicSelection\ChoralInstrumentPart.cs" />
     <Compile Include="MusicSelection\InstrumentPart.cs" />
     <Compile Include="MusicSelection\Dispute.cs" />
     <Compile Include="MusicSelection\Instrument.cs" />
     <Compile Include="MusicSelection\Instrumentation.cs" />
     <Compile Include="MusicSelection\Label.cs" />
+    <Compile Include="MusicSelection\MusicSelectionDetailsProvider.cs" />
+    <Compile Include="MusicSelection\MusicSelectionInfoForLabelAsLabel.cs" />
     <Compile Include="MusicSelection\PrivateDispute.cs" />
     <Compile Include="MusicSelection\ReplacementValue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
