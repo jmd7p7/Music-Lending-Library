@@ -50,16 +50,15 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="MusicSelectionTests\ContributorTests.cs" />
+    <Compile Include="MusicSelectionTests\InstrumentPartTests.cs" />
+    <Compile Include="MusicSelectionTests\ChoralInstrumentPartTests.cs" />
+    <Compile Include="MusicSelectionTests\MusicSelectionTests.cs" />
+    <Compile Include="MusicSelectionTests\TagTests.cs" />
+    <Compile Include="MusicSelectionTests\ChoralMusicSelectionTests.cs" />
+    <Compile Include="UtilityTests\NameTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Label_Tests.cs" />
-    <Compile Include="ReplacementValue_Tests.cs" />
-    <Compile Include="Dispute_Tests.cs" />
-    <Compile Include="PrivateDispute_Tests.cs" />
-    <Compile Include="Instrumentation_Tests.cs" />
-    <Compile Include="Instrument_Tests.cs" />
-    <Compile Include="InstrumentPart_Tests.cs" />
-    <Compile Include="ChoralInstrumentPart_Tests.cs" />
-    <Compile Include="MusicSelectionInfoForLabelAsLabel_Tests.cs" />
+    <Compile Include="UtilityTests\StringFormattingTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LendingLibrary_Library\LendingLibrary_Library.csproj">
